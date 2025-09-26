@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política Global de Calidad - Coca-Cola</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff0000, #dc143c);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            padding: 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease-in-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        p, li {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(255, 235, 59, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffeb3b;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        
+        .coca-logo {
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .principle-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ffeb3b;
+        }
+        
+        .stats {
+            font-size: 2em;
+            color: #ffeb3b;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .cover-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .image-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cover-img {
+            width: 200px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 15px;
+            opacity: 0.9;
+        }
+        
+        .university-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .students-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .student-names {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .thank-you-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .thank-you-icons {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+        }
+        
+        .icon-float {
+            position: absolute;
+            font-size: 3em;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        .icon-float:nth-child(1) {
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .icon-float:nth-child(2) {
+            left: 50%;
+            animation-delay: 1s;
+        }
+        
+        .icon-float:nth-child(3) {
+            right: 20%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
+        }
+        
+        .final-message {
+            margin: 40px 0;
+        }
+        
+        .final-credits {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .university-footer {
+            border-bottom: 2px solid rgba(255, 235, 59, 0.3);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .presenters {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .final-quote {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">11</span>
+        </div>
+        
+        <!-- Slide 1: Carátula -->
+        <div class="slide active">
+            <div class="cover-images">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=300&h=200&fit=crop" alt="Coca Cola bottles" class="cover-img">
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=300&h=200&fit=crop" alt="Quality control" class="cover-img">
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop" alt="Food safety" class="cover-img">
+                </div>
+            </div>
+            
+            <h1 class="coca-logo" style="margin: 30px 0 20px 0;">Política Global de Calidad</h1>
+            <h2 style="font-size: 2em; margin-bottom: 10px;">The Coca-Cola Company (TCCC)</h2>
+            
+            <div class="university-info">
+                <h3 style="color: #ffffff; font-size: 1.4em; margin: 20px 0 10px 0;">Universidad Pública de El Alto (UPEA)</h3>
+                <p style="font-size: 1.2em; color: #ffeb3b; margin-bottom: 25px;"><strong>Carrera: Ingeniería de Sistemas</strong></p>
+            </div>
+            
+            <div class="students-info">
+                <h3 style="color: #ffd700; margin-bottom: 15px;">Integrantes:</h3>
+                <div class="student-names">
+                    <p style="font-size: 1.3em; margin: 8px 0;">📍 Vaneza Averanga Ochoa</p>
+                    <p style="font-size: 1.3em; margin: 8px 0;">📍 Ariel Leonel Asister Condori</p>
+                </div>
+            </div>
+            
+            <div class="highlight" style="margin-top: 25px;">
+                <p style="font-size: 1.1em;"><strong>"Producto perfecto, confiable en todas partes"</strong></p>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Visión -->
+        <div class="slide">
+            <h2>Visión y Compromiso</h2>
+            <div class="highlight">
+                <p><strong>Crear las marcas y bebidas que la gente ama, refrescándolas en cuerpo y espíritu</strong></p>
+            </div>
+            <ul>
+                <li>Garantizar que cada producto sea confiable por su calidad y seguridad</li>
+                <li>Ganarse la confianza con <span class="stats">1,900 millones</span> de raciones al día</li>
+                <li>Compromiso con la renovación del mundo</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 3: Estándar de Oro -->
+        <div class="slide">
+            <h2>Estándar de Oro: "La Promesa"</h2>
+            <div class="stats">100%</div>
+            <p style="font-size: 1.8em;">Nada menos que el 100% de calidad y seguridad es aceptable</p>
+            <div class="highlight">
+                <h3>Meta Principal</h3>
+                <p>El consumidor debe recibir el <strong>"producto perfecto, confiable en todas partes"</strong> en todo momento</p>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Responsabilidad Universal -->
+        <div class="slide">
+            <h2>Responsabilidad Universal</h2>
+            <p style="font-size: 1.5em; margin-bottom: 30px;">Todos somos responsables de la calidad</p>
+            <ul>
+                <li><strong>Manufactura:</strong> Personal directo de producción</li>
+                <li><strong>Soporte Indirecto:</strong> Finanzas, RR.HH., Legal, TI</li>
+                <li><strong>Objetivo común:</strong> "Cumplir la promesa" con los consumidores</li>
+            </ul>
+            <div class="highlight">
+                <p>La calidad y seguridad alimentaria es responsabilidad de <strong>cada asociado</strong> de la empresa</p>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Marco KORE -->
+        <div class="slide">
+            <h2>Marco de Gestión: KORE</h2>
+            <h3>Requisitos Operativos de Coca-Cola</h3>
+            <ul>
+                <li><strong>Cumplimiento legal:</strong> Todos los requisitos legales y reglamentarios</li>
+                <li><strong>Estándar FSSC 22000:</strong> Sistema de Seguridad Alimentaria reconocido internacionalmente</li>
+                <li><strong>Controles operativos:</strong> Conjunto riguroso para gestionar riesgos conocidos</li>
+                <li><strong>Mejora continua:</strong> En el desempeño de seguridad alimentaria</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 6: Principios de Ejecución -->
+        <div class="slide">
+            <h2>Principios de Ejecución</h2>
+            <h3>Del Diseño al Mercado</h3>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h3>🎯 Calidad por Diseño</h3>
+                    <p>Integrada en desarrollo, diseño, fabricación y entrega</p>
+                </div>
+                <div class="principle-card">
+                    <h3>🤝 Gestión de Proveedores</h3>
+                    <p>Solo proveedores autorizados con fuerte compromiso de calidad</p>
+                </div>
+                <div class="principle-card">
+                    <h3>🏭 Fabricación</h3>
+                    <p>Buenas prácticas, HACCP y verificación de procesos</p>
+                </div>
+                <div class="principle-card">
+                    <h3>🚚 Distribución y Mercado</h3>
+                    <p>Garantizar calidad hasta el punto de compra</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 7: Gestión de Riesgos -->
+        <div class="slide">
+            <h2>Gestión Proactiva de Riesgos</h2>
+            <ul>
+                <li><strong>Identificación proactiva:</strong> Evaluar riesgos y tendencias emergentes</li>
+                <li><strong>Auditorías constantes:</strong> Evaluaciones periódicas y objetivas</li>
+                <li><strong>Cumplimiento garantizado:</strong> Requisitos legales y empresariales</li>
+            </ul>
+            <div class="highlight">
+                <h3>Enfoque Preventivo</h3>
+                <p>Abordar los riesgos antes de que afecten el negocio</p>
+            </div>
+        </div>
+        
+        <!-- Slide 8: Liderazgo y Cultura -->
+        <div class="slide">
+            <h2>Liderazgo y Cultura de Calidad</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h3>👥 Compromiso de Liderazgo</h3>
+                    <p>Integración en planes de negocio y evaluaciones de desempeño</p>
+                </div>
+                <div class="principle-card">
+                    <h3>🎓 Empleados Capacitados</h3>
+                    <p>Roles definidos, capacitación y comunicación efectiva</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <p>Cultura positiva que empodera a los empleados en el diseño y desarrollo de procesos</p>
+            </div>
+        </div>
+        
+        <!-- Slide 9: Seguimiento del Desempeño -->
+        <div class="slide">
+            <h2>Seguimiento del Desempeño</h2>
+            <ul>
+                <li><strong>Metas y objetivos:</strong> Establecimiento y seguimiento continuo</li>
+                <li><strong>Informes ESG:</strong> Environmental, Social, and Governance</li>
+                <li><strong>Reportes anuales:</strong> Progreso y desempeño en calidad</li>
+                <li><strong>Gestión de riesgos:</strong> Monitoreo constante</li>
+            </ul>
+            <div class="highlight">
+                <p>Sostenibilidad a través de la medición y mejora continua</p>
+            </div>
+        </div>
+        
+        <!-- Slide 10: Conclusión -->
+        <div class="slide">
+            <h2>Conclusión</h2>
+            <div class="highlight">
+                <h3>Sistema de Gestión Integral</h3>
+                <ul>
+                    <li>✅ Basado en el sistema KORE</li>
+                    <li>✅ Exige 100% de cumplimiento</li>
+                    <li>✅ Involucra a toda la organización</li>
+                    <li>✅ Compromiso con mejora continua</li>
+                    <li>✅ Gestión proactiva de riesgos</li>
+                </ul>
+            </div>
+            <p style="font-size: 1.5em; margin-top: 30px;">
+                <strong class="coca-logo">La excelencia en calidad no es un accidente, es el resultado de un esfuerzo inteligente</strong>
+            </p>
+        </div>
+        
+        <!-- Slide 11: Agradecimiento -->
+        <div class="slide">
+            <div class="thank-you-container">
+                <div class="thank-you-icons">
+                    <div class="icon-float">🎉</div>
+                    <div class="icon-float">✨</div>
+                    <div class="icon-float">👏</div>
+                </div>
+                
+                <h1 style="font-size: 4em; margin-bottom: 30px; color: #ffeb3b; text-shadow: 3px 3px 6px rgba(0,0,0,0.5);">¡Gracias por su Atención!</h1>
+                
+                <div class="final-message">
+                    <p style="font-size: 1.8em; margin-bottom: 25px;">Esperamos que la información haya sido de su interés</p>
+                    <div class="highlight" style="margin: 30px 0;">
+                        <p style="font-size: 1.4em;"><strong>Política Global de Calidad - The Coca-Cola Company</strong></p>
+                    </div>
+                </div>
+                
+                <div class="final-credits">
+                    <div class="university-footer">
+                        <p style="font-size: 1.3em; color: #ffd700; margin-bottom: 10px;"><strong>Universidad Pública de El Alto (UPEA)</strong></p>
+                        <p style="font-size: 1.1em; margin-bottom: 20px;">Ingeniería de Sistemas</p>
+                    </div>
+                    
+                    <div class="presenters">
+                        <p style="font-size: 1.2em; margin: 5px 0;">Vaneza Averanga Ochoa</p>
+                        <p style="font-size: 1.2em; margin: 5px 0;">Ariel Leonel Asister Condori</p>
+                    </div>
+                </div>
+                
+                <div class="final-quote">
+                    <p style="font-style: italic; font-size: 1.3em; margin-top: 30px; opacity: 0.9;">
+                        "La calidad nunca es un accidente; siempre es el resultado de un esfuerzo inteligente"
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">← Anterior</button>
+            <button class="nav-btn" onclick="changeSlide(1)">Siguiente →</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') showSlide(0);
+            if (e.key === 'End') showSlide(totalSlides - 1);
+        });
+        
+        // Auto-avance opcional (descomentear para activar)
+        /*
+        setInterval(() => {
+            changeSlide(1);
+        }, 30000); // Cambiar cada 30 segundos
+        */
+    </script>
+</body>
+</html>
